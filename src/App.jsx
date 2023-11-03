@@ -1,7 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+// import { getCarsThunk } from "./redux/cars/operations";
+// import { useDispatch } from "react-redux";
+// import { useEffect } from "react";
 
-function App() {
+export const  App=()=> {
+  // const dispatch = useDispatch();
+
+
+  // useEffect(() => {
+  //   dispatch(getCarsThunk())
+  // },[dispatch]);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -21,5 +31,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
