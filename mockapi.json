@@ -1,0 +1,21 @@
+{
+  "routes": [
+    {
+      "route": "/api/adverts/adverts",
+      "method": "GET",
+      "request": {
+        "query": {
+          "_page": "$params._page",
+          "_limit": "$params._limit"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "data": "$mockData",
+          "total": 32
+        }
+      }
+    }
+  ]
+}
