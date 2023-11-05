@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/LaPaNu4/TesTask/static/css/main.aa3fdeb9.css",
+    "main.js": "/LaPaNu4/TesTask/static/js/main.620b8c0d.js",
+    "static/js/520.54f5112f.chunk.js": "/LaPaNu4/TesTask/static/js/520.54f5112f.chunk.js",
+    "static/js/709.ec449393.chunk.js": "/LaPaNu4/TesTask/static/js/709.ec449393.chunk.js",
+    "static/js/339.4d91243e.chunk.js": "/LaPaNu4/TesTask/static/js/339.4d91243e.chunk.js",
+    "static/media/carshomepage.png": "/LaPaNu4/TesTask/static/media/carshomepage.cc38d6f978caf2cc1ef0.png",
+    "index.html": "/LaPaNu4/TesTask/index.html",
+    "main.aa3fdeb9.css.map": "/LaPaNu4/TesTask/static/css/main.aa3fdeb9.css.map",
+    "main.620b8c0d.js.map": "/LaPaNu4/TesTask/static/js/main.620b8c0d.js.map",
+    "520.54f5112f.chunk.js.map": "/LaPaNu4/TesTask/static/js/520.54f5112f.chunk.js.map",
+    "709.ec449393.chunk.js.map": "/LaPaNu4/TesTask/static/js/709.ec449393.chunk.js.map",
+    "339.4d91243e.chunk.js.map": "/LaPaNu4/TesTask/static/js/339.4d91243e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aa3fdeb9.css",
+    "static/js/main.620b8c0d.js"
+  ]
+}
