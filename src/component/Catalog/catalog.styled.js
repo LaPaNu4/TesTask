@@ -159,7 +159,7 @@ export const DropSection = styled.section`
     border-radius: 14px;
     background: #f7f7fb;
     color: #121417;
-
+border: 0;
     font-family: "Manrope", sans-serif;
     font-size: 18px;
     font-style: normal;

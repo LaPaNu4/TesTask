@@ -56,8 +56,8 @@ const Catalog = () => {
     <>
       <DropSection>
         <div className="dropDiv">
-          <label htmlFor="makeDropdown">
-            <span className="labelBrand">Car brand</span>
+          <label className="label" htmlFor="makeDropdown">
+            Car brand
           </label>
           <select
             className="selectBrand"
