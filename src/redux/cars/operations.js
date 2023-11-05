@@ -8,12 +8,15 @@ export const instance = axios.create({
 
 export const getCarsThunk = createAsyncThunk(
   "cars/getCarsThunk",
-    async (_, { rejectWithValue }) => {
-      try {
-          const response = await instance.post("/api/adverts/adverts");
-          return response.data
-      } catch (error) {
-        return rejectWithValue(error.message);
-      }
+  async ({ page, limit }, { rejectWithValue }) => {
+    try {
+      const url = `/api/adverts/adverts?limit=${limit}&page=${page}`;
+      
+      const response = await instance.get(url);
+      // console.log(response);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
   }
 );
