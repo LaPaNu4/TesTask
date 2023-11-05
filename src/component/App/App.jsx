@@ -26,7 +26,7 @@ export const App = () => {
             </NavLink>
           </nav>
         </Header>
-        <main>
+        <main className="main">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/catalog" element={<Catalog/>} />

@@ -17,6 +17,10 @@ const Catalog = () => {
   const favCars = useSelector(selectFavCars);
 
   const [selectedMake, setSelectedMake] = useState("");
+  const [selectedPrice, setSelectedPrice] = useState("");
+  const [selectedMinMileage, setSelectedMinMileage] = useState("");
+  const [selectedMaxMileage, setSelectedMaxMileage] = useState("");
+
   const [selectedCarId, setSelectedCarId] = useState(0);
 
   const [filteredCars, setFilteredCars] = useState(cars);
@@ -30,14 +34,50 @@ const Catalog = () => {
   }, [dispatch, page]);
 
   useEffect(() => {
-    if (selectedMake) {
-      const filtered = cars.filter((car) => car.make === selectedMake);
-      setFilteredCars(filtered);
-    } else {
-      setFilteredCars(cars);
-    }
-  }, [selectedMake, cars]);
+    if (cars) {
+      const filtered = cars.filter((car) => {
+        if (
+          (!selectedMake || car.make === selectedMake) &&
+          (!selectedPrice || rentalPriceFilter(car, selectedPrice)) &&
+          (!selectedMinMileage ||
+            !selectedMaxMileage ||
+            mileageRangeFilter(car, selectedMinMileage, selectedMaxMileage))
+        ) {
+          return true;
+        }
+        return false;
+      });
 
+      setFilteredCars(filtered);
+    }
+  }, [
+    selectedMake,
+    selectedPrice,
+    selectedMinMileage,
+    selectedMaxMileage,
+    cars,
+  ]);
+
+  function rentalPriceFilter(car, selectedPrice) {
+    if (!selectedPrice) {
+      return true;
+    }
+
+    const rentalPrice = parseInt(car.rentalPrice.replace(/\$/, ""), 10);
+    return rentalPrice <= parseInt(selectedPrice, 10);
+  }
+
+  function mileageRangeFilter(car, minMileage, maxMileage) {
+    if (!minMileage && !maxMileage) {
+      return true;
+    }
+
+    const mileage = parseInt(car.mileage, 10);
+    const min = minMileage ? parseInt(minMileage, 10) : 0;
+    const max = maxMileage ? parseInt(maxMileage, 10) : Infinity;
+
+    return mileage >= min && mileage <= max;
+  }
   const loadMore = () => {
     setPage((prev) => prev + 1);
   };
@@ -87,6 +127,52 @@ const Catalog = () => {
             <option value="Kia">Kia</option>
             <option value="Land">Land</option>
           </select>
+        </div>
+        <div className="dropDiv">
+          <label className="labelPrice" htmlFor="priceDropdown">
+            Price/ 1 hour
+          </label>
+          <select
+            className="selactPrice"
+            id="priceDropdown"
+            value={selectedPrice}
+            onChange={(e) => setSelectedPrice(e.target.value)}
+          >
+            <option value="">All Prices</option>
+            <option value="10">$10</option>
+            <option value="20">$20</option>
+            <option value="30">$30</option>
+            <option value="40">$40</option>
+            <option value="50">$50</option>
+            <option value="60">$60</option>
+            <option value="70">$70</option>
+            <option value="80">$80</option>
+          </select>
+        </div>
+        <div className="dropDiv">
+          <label className="minMile" htmlFor="mileageMin">
+            Min Mileage:
+          </label>
+          <input
+            className="inpMinMile"
+            type="text"
+            id="mileageMin"
+            value={selectedMinMileage}
+            onChange={(e) => setSelectedMinMileage(e.target.value)}
+          />
+        </div>
+
+        <div className="dropDiv">
+          <label className="minMile" htmlFor="mileageMax">
+            Max Mileage:
+          </label>
+          <input
+            className="inpMinMile"
+            type="text"
+            id="mileageMax"
+            value={selectedMaxMileage}
+            onChange={(e) => setSelectedMaxMileage(e.target.value)}
+          />
         </div>
       </DropSection>
       <SectionCar>

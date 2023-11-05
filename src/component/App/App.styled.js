@@ -5,6 +5,12 @@ export const Section = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const Header = styled.header`

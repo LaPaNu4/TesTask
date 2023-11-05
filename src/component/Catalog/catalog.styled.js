@@ -5,6 +5,7 @@ export const SectionCar = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 1440px;
   .carList {
     display: flex;
     flex-wrap: wrap;
@@ -132,17 +133,45 @@ export const SectionCar = styled.section`
 `;
 
 export const DropSection = styled.section`
+  margin-top: 20px;
+  width: 859px;
+  gap: 20px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  .labelPrice {
+    color: #8a8a89;
+    font-family: "Manrope", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.28;
+  }
+  .selactPrice {
+    display: flex;
+    margin-top: 8px;
+    width: 125px;
+    padding: 14px 18px;
+    align-items: flex-start;
+    gap: 32px;
+    border-radius: 14px;
+    background: #f7f7fb;
+    border: 0;
+    color: #121417;
+    font-family: "Manrope", sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.11;
+  }
   .dropDiv {
     display: flex;
     flex-direction: column;
   }
   .label {
     color: #8a8a89;
-
     font-family: "Manrope", sans-serif;
     font-size: 14px;
     font-style: normal;
@@ -159,11 +188,37 @@ export const DropSection = styled.section`
     border-radius: 14px;
     background: #f7f7fb;
     color: #121417;
-border: 0;
+    border: 0;
     font-family: "Manrope", sans-serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
     line-height: 1.11;
+  }
+  .minMile {
+    color: #8a8a89;
+    font-family: "Manrope", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.28;
+  }
+  .inpMinMile {
+    margin-top: 8px;
+    padding: 3px;
+    display: flex;
+    width: 160px;
+    height: 48px;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 14px;
+    background: #f7f7fb;
+    color: #121417;
+    font-family: "Manrope", sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.11;
+    border: 0;
   }
 `;
