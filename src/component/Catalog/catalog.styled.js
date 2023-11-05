@@ -27,6 +27,7 @@ export const SectionCar = styled.section`
     width: 275px;
     height: 270px;
     border-radius: 14px;
+    object-fit: cover;
   }
   .titleDiv {
     display: flex;
@@ -127,5 +128,42 @@ export const SectionCar = styled.section`
     position: absolute;
     right: 14px;
     top: 14px;
+  }
+`;
+
+export const DropSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .dropDiv {
+    display: flex;
+    flex-direction: column;
+  }
+  .label {
+    color: #8a8a89;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.28;
+  }
+  .selectBrand {
+    margin-top: 8px;
+    display: flex;
+    padding: 14px 89px 14px 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    border-radius: 14px;
+    background: #f7f7fb;
+    color: #121417;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.11;
   }
 `;

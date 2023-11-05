@@ -5,6 +5,7 @@ import { Header, Section } from "./App.styled";
 
 const Home = lazy(() => import('../Home/home'));
 const Catalog = lazy(() => import("../Catalog/catalog"));
+const Favorite = lazy(() => import("../Favorite/favorite"));
 
 export const App = () => {
 
@@ -29,7 +30,7 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/catalog" element={<Catalog/>} />
-            <Route path="/favorite" element={<h1>Favorite</h1>} />
+            <Route path="/favorite" element={<Favorite/>} />
             <Route path="*" element={<h1>Page is not exist</h1>} />
           </Routes>
         </main>

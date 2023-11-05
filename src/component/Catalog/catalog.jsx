@@ -2,20 +2,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCarsThunk } from "../../redux/cars/operations";
 import { useEffect, useState } from "react";
 import { selectCars } from "../../redux/cars/selectors";
-import { SectionCar } from "./catalog.styled";
+import { DropSection, SectionCar } from "./catalog.styled";
 import { heartSvg1, heartSvg2 } from "./catalogSvg";
 import { getCarById } from "../../redux/favorites/operations";
 import { selectFavCars } from "../../redux/favorites/selectors";
 import { removeCarFromFavorites } from "../../redux/favorites/favSlice";
+import LearnMoreModal from "../../modal/learnMoreModal/learnMore";
+import { setIsOpen } from "../../redux/modal/modalSlice";
 
 const Catalog = () => {
   const dispatch = useDispatch();
 
   const cars = useSelector(selectCars);
   const favCars = useSelector(selectFavCars);
+
   const [selectedMake, setSelectedMake] = useState("");
+  const [selectedCarId, setSelectedCarId] = useState(0);
+
   const [filteredCars, setFilteredCars] = useState(cars);
+
   const [page, setPage] = useState(1);
+
   const limit = 12;
 
   useEffect(() => {
@@ -47,15 +54,18 @@ const Catalog = () => {
   };
   return (
     <>
-      <section>
-        <div>
-          <label htmlFor="makeDropdown">Car brand</label>
+      <DropSection>
+        <div className="dropDiv">
+          <label htmlFor="makeDropdown">
+            <span className="labelBrand">Car brand</span>
+          </label>
           <select
+            className="selectBrand"
             id="makeDropdown"
             value={selectedMake}
             onChange={(e) => setSelectedMake(e.target.value)}
           >
-            <option value="">Chouse your brand</option>
+            <option value="">Choose your brand</option>
             <option value="Buick">Buick</option>
             <option value="Volvo">Volvo</option>
             <option value="HUMMER">HUMMER</option>
@@ -78,7 +88,7 @@ const Catalog = () => {
             <option value="Land">Land</option>
           </select>
         </div>
-      </section>
+      </DropSection>
       <SectionCar>
         <ul className="carList">
           {filteredCars
@@ -122,7 +132,14 @@ const Catalog = () => {
                       </li>
                     </ul>
 
-                    <button className="learnBtn" type="button">
+                    <button
+                      className="learnBtn"
+                      type="button"
+                      onClick={() => {
+                        dispatch(setIsOpen(true));
+                        setSelectedCarId(car.id);
+                      }}
+                    >
                       Learn more
                     </button>
 
@@ -150,6 +167,7 @@ const Catalog = () => {
           </button>
         ) : null}
       </SectionCar>
+      <LearnMoreModal id={selectedCarId} />
     </>
   );
 };

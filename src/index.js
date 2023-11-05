@@ -9,7 +9,7 @@ import { HashRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <HashRouter>
@@ -17,5 +17,5 @@ root.render(
         </HashRouter>
       </PersistGate>
     </Provider>
-  </React.StrictMode>
+    // </React.StrictMode>  
 );
