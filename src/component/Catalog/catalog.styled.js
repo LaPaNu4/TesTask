@@ -12,6 +12,7 @@ export const SectionCar = styled.section`
     align-items: center;
   }
   .carItem {
+    position: relative;
     display: flex;
     width: 275px;
     height: 425px;
@@ -25,6 +26,7 @@ export const SectionCar = styled.section`
   .imgCar {
     width: 275px;
     height: 270px;
+    border-radius: 14px;
   }
   .titleDiv {
     display: flex;
@@ -118,5 +120,12 @@ export const SectionCar = styled.section`
   .loadBTN:hover,
   .loadBTN:focus {
     color: #0b44cd;
+  }
+  .svg {
+    background-color: transparent;
+    border: 1px;
+    position: absolute;
+    right: 14px;
+    top: 14px;
   }
 `;

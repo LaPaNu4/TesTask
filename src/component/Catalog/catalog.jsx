@@ -3,11 +3,16 @@ import { getCarsThunk } from "../../redux/cars/operations";
 import { useEffect, useState } from "react";
 import { selectCars } from "../../redux/cars/selectors";
 import { SectionCar } from "./catalog.styled";
+import { heartSvg1, heartSvg2 } from "./catalogSvg";
+import { getCarById } from "../../redux/favorites/operations";
+import { selectFavCars } from "../../redux/favorites/selectors";
+import { removeCarFromFavorites } from "../../redux/favorites/favSlice";
 
 const Catalog = () => {
   const dispatch = useDispatch();
 
   const cars = useSelector(selectCars);
+  const favCars = useSelector(selectFavCars);
   const [selectedMake, setSelectedMake] = useState("");
   const [filteredCars, setFilteredCars] = useState(cars);
   const [page, setPage] = useState(1);
@@ -28,6 +33,17 @@ const Catalog = () => {
 
   const loadMore = () => {
     setPage((prev) => prev + 1);
+  };
+  const addFavorite = (id) => {
+    dispatch(getCarById({ id }));
+  };
+
+  const isCarInFav = (carId) => {
+    return favCars.some((car) => car.id === carId);
+  };
+
+  const removeFromFav = (id) => {
+    dispatch(removeCarFromFavorites(id));
   };
   return (
     <>
@@ -108,6 +124,20 @@ const Catalog = () => {
 
                     <button className="learnBtn" type="button">
                       Learn more
+                    </button>
+
+                    <button
+                      onClick={() => {
+                        if (isCarInFav(car.id)) {
+                          removeFromFav(car.id);
+                        } else {
+                          addFavorite(car.id);
+                        }
+                      }}
+                      className="svg"
+                      type="button"
+                    >
+                      {isCarInFav(car.id) ? heartSvg2 : heartSvg1}
                     </button>
                   </li>
                 );
