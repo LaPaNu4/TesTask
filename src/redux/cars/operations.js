@@ -13,7 +13,7 @@ export const getCarsThunk = createAsyncThunk(
       const url = `/api/adverts/adverts?limit=${limit}&page=${page}`;
       
       const response = await instance.get(url);
-      // console.log(response);
+
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);

@@ -11,7 +11,7 @@ import { xBtn } from "./carFormSvg";
 const CarForm = ({ id }) => {
   const dispatch = useDispatch();
   const modalCar = useSelector(selectModalCar);
-  console.log(modalCar);
+  \\
   useEffect(() => {
     dispatch(getCarByIdforModal({ id }));
   }, [dispatch, id]);
@@ -19,16 +19,16 @@ const CarForm = ({ id }) => {
   if (modalCar && modalCar.length > 0) {
     const rentalConditions = modalCar[0].rentalConditions;
     const conditionsArray = rentalConditions.split(",");
-    const minimumAge = conditionsArray[0].trim(); // "Minimum age: 25"
-    const validLicense = conditionsArray[1].trim(); // "Valid driver's license"
-    const securityDeposit = conditionsArray[2].trim(); // "Security deposit required"
+    const minimumAge = conditionsArray[0].trim(); 
+    const validLicense = conditionsArray[1].trim(); 
+    const securityDeposit = conditionsArray[2].trim(); 
     const addressParts = modalCar[0].address.split(",");
     const City = addressParts[1] ? addressParts[1].trim() : "";
     const Country = addressParts[2] ? addressParts[2].trim() : "";
-    const minimumAgeParts = minimumAge.split(" "); // Розділити рядок за пробіли
+    const minimumAgeParts = minimumAge.split(" "); 
     const minimumAgeNumber = parseInt(
       minimumAgeParts[minimumAgeParts.length - 1]
-    ); // Отримати останній елемент як число
+    ); 
     return (
       <FormDiv>
         <button
