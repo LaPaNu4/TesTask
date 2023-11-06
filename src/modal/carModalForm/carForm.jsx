@@ -11,7 +11,7 @@ import { xBtn } from "./carFormSvg";
 const CarForm = ({ id }) => {
   const dispatch = useDispatch();
   const modalCar = useSelector(selectModalCar);
-  \\
+  
   useEffect(() => {
     dispatch(getCarByIdforModal({ id }));
   }, [dispatch, id]);
